@@ -72,7 +72,7 @@ const Navbar = () => {
                 GitHub
               </a>
               <a
-                className="group inline-flex items-center gap-x-2 py-2 px-3 bg-blue-500 font-medium text-sm text-white rounded-full focus:outline-none"
+                className="group inline-flex my-4 mx-3 justify-center md:m-0 items-center gap-x-2 py-2 px-3 bg-blue-500 font-medium text-sm text-white rounded-full focus:outline-none"
                 href="#"
               >
                 Crea una procedura
