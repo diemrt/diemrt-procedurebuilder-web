@@ -30,7 +30,7 @@ const ProcedureStepsWizard = ({ steps }: Props) => {
                 <h3 className="text-blue-500 text-xs font-extrabold uppercase">
                   Passo {currentStep + 1}
                 </h3>
-                <h2 className="font-bold text-3xl lg:text-4xl text-gray-800">
+                <h2 className="font-black text-3xl lg:text-4xl text-gray-800">
                   {name}
                 </h2>
                 <p className="text-gray-500">{description}</p>
