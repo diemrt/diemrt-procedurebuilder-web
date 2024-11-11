@@ -14,6 +14,7 @@ export interface ProcedureStepType {
   name: string;
   description: string;
   image: string;
+  timeToRead: number;
   isSubTasksMandatory?: boolean;
   subTasks?: ProcedureSubTaskType[];
 }
