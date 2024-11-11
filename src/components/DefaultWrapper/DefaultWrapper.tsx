@@ -8,7 +8,10 @@ const DefaultWrapper = ({ children }: Props) => {
   return (
     <div>
       <Navbar />
-      {children}
+
+      <div className="bg-gradient-to-b from-violet-600/10 via-transparent pt-10">
+        {children}
+      </div>
     </div>
   );
 };
