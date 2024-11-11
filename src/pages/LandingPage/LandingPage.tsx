@@ -1,7 +1,7 @@
 import DefaultWrapper from "../../components/DefaultWrapper/DefaultWrapper";
-import Hero1 from '../../assets/hero1.jpg';
-import Hero2 from '../../assets/hero2.jpg';
-import Hero3 from '../../assets/hero3.jpg';
+import Hero1 from "../../assets/hero1.jpg";
+import Hero2 from "../../assets/hero2.jpg";
+import Hero3 from "../../assets/hero3.jpg";
 
 const LandingPage = () => {
   return (
@@ -14,7 +14,9 @@ const LandingPage = () => {
         </div>
         <div className="max-w-3xl text-center mx-auto">
           <p className="text-lg text-black/70">
-            <span className="opacity-90 font-bold">procedure builder</span> è un'applicazione web che ti permette di creare e condividere le tue procedure in modo semplice e veloce.
+            <span className="opacity-90 font-bold">procedure builder</span> è
+            un'applicazione web che ti permette di creare e condividere le tue
+            procedure in modo semplice e veloce.
           </p>
         </div>
         <>
@@ -52,11 +54,14 @@ const LandingPage = () => {
                       Uno strumento accessibile ovunque, senza uso di carta
                     </h2>
                     <p className="text-gray-500 dark:text-neutral-500">
-                      Crea infinite procedure, ti basterà conservare il link che ti verrà generato alla fine del processo. Dopodoché potrai condividerlo con chiunque tu voglia. <span className="font-bold">Nessun dato verrà salvato sui nostri server.</span>
+                      Crea infinite procedure, ti basterà conservare il link che
+                      ti verrà generato alla fine del processo. Dopodoché potrai
+                      condividerlo con chiunque tu voglia.{" "}
+                      <span className="font-bold">
+                        Nessun dato verrà salvato sui nostri server.
+                      </span>
                     </p>
                   </div>
-                  {/* End Title */}
-                  {/* List */}
                   <ul className="space-y-2 sm:space-y-4">
                     <li className="flex gap-x-3">
                       <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-800/30 dark:text-blue-500">
@@ -77,7 +82,8 @@ const LandingPage = () => {
                       </span>
                       <div className="grow">
                         <span className="text-sm sm:text-base text-gray-500 dark:text-neutral-500">
-                          <span className="font-bold">Meno carta</span> e più accessibilità
+                          <span className="font-bold">Meno carta</span> e più
+                          accessibilità
                         </span>
                       </div>
                     </li>
@@ -100,7 +106,8 @@ const LandingPage = () => {
                       </span>
                       <div className="grow">
                         <span className="text-sm sm:text-base text-gray-500 dark:text-neutral-500">
-                          Infiniti utilizzi, <span className="font-bold">nessun limite</span>
+                          Infiniti utilizzi,{" "}
+                          <span className="font-bold">nessun limite</span>
                         </span>
                       </div>
                     </li>
@@ -128,17 +135,11 @@ const LandingPage = () => {
                       </div>
                     </li>
                   </ul>
-                  {/* End List */}
                 </div>
               </div>
-              {/* End Col */}
             </div>
-            {/* End Grid */}
           </div>
-          {/* End Features */}
         </>
-
-        {/* Buttons */}
         <div className="text-center">
           <a
             className="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl bg-blue-500 shadow-lg shadow-transparent hover:shadow-xl border border-transparent text-white text-sm font-medium rounded-full focus:outline-none focus:shadow-blue-700/50 py-3 px-6"
@@ -161,7 +162,6 @@ const LandingPage = () => {
             </svg>
           </a>
         </div>
-        {/* End Buttons */}
       </div>
     </DefaultWrapper>
   );

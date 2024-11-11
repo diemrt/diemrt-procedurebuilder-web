@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import NavbarLogo from "./NavbarLogo/NavbarLogo";
 
 const Navbar = () => {
@@ -8,7 +9,6 @@ const Navbar = () => {
           <div className="px-4 md:px-0 flex justify-between items-center">
             <NavbarLogo />
             <div className="md:hidden">
-              {/* Toggle Button */}
               <button
                 type="button"
                 className="hs-collapse-toggle flex justify-center items-center size-6 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-none focus:bg-gray-200 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
@@ -50,7 +50,6 @@ const Navbar = () => {
                   <path d="m6 6 12 12" />
                 </svg>
               </button>
-              {/* End Toggle Button */}
             </div>
           </div>
           <div
@@ -59,30 +58,24 @@ const Navbar = () => {
             aria-labelledby="hs-navbar-header-floating-collapse"
           >
             <div className="flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-3 mt-3 md:mt-0 py-2 md:py-0 md:ps-7">
-              <a
+              <Link
                 className="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-gray-800 font-medium text-gray-800 focus:outline-none dark:border-neutral-200 dark:text-neutral-200"
-                href="#"
-                aria-current="page"
+                to="/"
               >
                 Home
-              </a>
+              </Link>
               <a
                 className="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200"
-                href="#"
+                href="https://github.com/diemrt/diemrt-procedurebuilder-web"
+                target="_blank"
               >
-                Projects
+                GitHub
               </a>
               <a
-                className="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200"
+                className="group inline-flex items-center gap-x-2 py-2 px-3 bg-blue-500 font-medium text-sm text-white rounded-full focus:outline-none"
                 href="#"
               >
-                Work
-              </a>
-              <a
-                className="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200"
-                href="#"
-              >
-                Articles
+                Crea una procedura
               </a>
             </div>
           </div>
