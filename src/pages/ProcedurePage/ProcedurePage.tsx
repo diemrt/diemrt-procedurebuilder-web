@@ -6,7 +6,7 @@ const ProcedurePage = () => {
   const [searchParams] = useSearchParams();
   const base64 = searchParams.get("base64");
   return(
-    <DefaultWrapper>
+    <DefaultWrapper isMinimal>
         <DeserializeBase64 base64={base64 ?? ""} />
     </DefaultWrapper>
   );
