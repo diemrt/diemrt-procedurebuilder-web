@@ -18,7 +18,7 @@ const ReinitializationHelper = ({
     const location = useLocation();
 
     useEffect(() => {
-        window.HSStaticMethods.autoInit();
+        window.HSStaticMethods?.autoInit();
     }, [location.pathname]);
 
     return (
