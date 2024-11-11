@@ -1,6 +1,6 @@
 import DeserializeErrorPage from "../../pages/DeserializeErrorPage/DeserializeErrorPage"
 import { ProcedureRootType } from "../../types/procedureTypes"
-import ProcedureLayout from "../ProcedureLayout/ProcedureLayout"
+import ProcedureWapper from "../ProcedureWapper/ProcedureWapper"
 import { deserializeBase64 } from "./utils"
 
 interface Props {
@@ -11,7 +11,7 @@ const DeserializeBase64 = ({base64}:Props) => {
     if(!obj) return <DeserializeErrorPage />
     
   return (
-    <ProcedureLayout data={obj as ProcedureRootType} />
+    <ProcedureWapper data={obj as ProcedureRootType} />
   )
 }
 

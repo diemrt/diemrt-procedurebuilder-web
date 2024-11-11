@@ -3,12 +3,11 @@ import Navbar from "../Navbar/Navbar";
 
 interface Props {
   children: React.ReactNode;
-  isMinimal?: boolean;
 }
-const DefaultWrapper = ({ children, isMinimal }: Props) => {
+const DefaultWrapper = ({ children }: Props) => {
   return (
     <div>
-      <Navbar isMinimal={isMinimal} />
+      <Navbar />
 
       <div className="bg-gradient-to-b from-blue-600/10 via-transparent pt-10">
         {children}
