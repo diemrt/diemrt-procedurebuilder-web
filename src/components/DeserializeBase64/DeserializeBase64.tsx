@@ -1,4 +1,6 @@
 import DeserializeErrorPage from "../../pages/DeserializeErrorPage/DeserializeErrorPage"
+import { ProcedureRootType } from "../../types/procedureTypes"
+import ProcedureLayout from "../ProcedureLayout/ProcedureLayout"
 import { deserializeBase64 } from "./utils"
 
 interface Props {
@@ -9,7 +11,7 @@ const DeserializeBase64 = ({base64}:Props) => {
     if(!obj) return <DeserializeErrorPage />
     
   return (
-    <div>{JSON.stringify(obj)}</div>
+    <ProcedureLayout data={obj as ProcedureRootType} />
   )
 }
 
