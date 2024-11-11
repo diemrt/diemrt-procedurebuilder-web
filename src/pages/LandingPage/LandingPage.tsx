@@ -2,6 +2,7 @@ import DefaultWrapper from "../../components/DefaultWrapper/DefaultWrapper";
 import Hero1 from "../../assets/hero1.jpg";
 import Hero2 from "../../assets/hero2.jpg";
 import Hero3 from "../../assets/hero3.jpg";
+import Faq from "../../components/common/Faq";
 
 const LandingPage = () => {
   return (
@@ -9,14 +10,12 @@ const LandingPage = () => {
       <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-8">
         <div className="max-w-3xl text-center mx-auto">
           <h1 className="block font-medium text-gray-800 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
-            Ora è più facile che mai creare una procedura
+            Costruisci, condividi, segui: semplifica ogni processo!
           </h1>
         </div>
         <div className="max-w-3xl text-center mx-auto">
           <p className="text-lg text-black/70">
-            <span className="opacity-90 font-bold">procedure builder</span> è
-            un'applicazione web che ti permette di creare e condividere le tue
-            procedure in modo semplice e veloce.
+            <span className="opacity-90 font-bold">procedure builder</span> è l'app che ti permette di creare, visualizzare e condividere istruzioni passo-passo per ogni tipo di attività.
           </p>
         </div>
         <>
@@ -54,9 +53,7 @@ const LandingPage = () => {
                       Uno strumento accessibile ovunque, senza uso di carta
                     </h2>
                     <p className="text-gray-500 dark:text-neutral-500">
-                      Crea infinite procedure, ti basterà conservare il link che
-                      ti verrà generato alla fine del processo. Dopodoché potrai
-                      condividerlo con chiunque tu voglia.{" "}
+                      Crea infinite procedure, facili da modificare e accessibili ovunque tramite link o QR code.{" "}
                       <span className="font-bold">
                         Nessun dato verrà salvato sui nostri server.
                       </span>
@@ -140,6 +137,7 @@ const LandingPage = () => {
             </div>
           </div>
         </>
+        <Faq />
         <div className="text-center">
           <a
             className="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl bg-blue-500 shadow-lg shadow-transparent hover:shadow-xl border border-transparent text-white text-sm font-medium rounded-full focus:outline-none focus:shadow-blue-700/50 py-3 px-6"
