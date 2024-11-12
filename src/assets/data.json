@@ -29,7 +29,7 @@
             },
             {
                 "name": "Cerca i dispositivi Bluetooth disponibili",
-                "description": "Nella lista dei dispositivi disponibili, cerca il **controller Wireless Xbox** e fai clic su **Connetti**",
+                "description": "Nella lista dei dispositivi disponibili, cerca il controller Wireless Xbox e fai clic su Connetti",
                 "image": "https://images.pexels.com/photos/1174775/pexels-photo-1174775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 "timeToRead": 5,
                 "isSubTasksMandatory": false,
