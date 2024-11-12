@@ -24,13 +24,13 @@
             {
                 "name": "Attiva il Bluetooth sul tuo dispositivo",
                 "description": "Vai su Impostazioni > Dispositivi Bluetooth e altri e attiva il Bluetooth",
-                "timeToRead": 5,
+                "timeToRead": 3,
                 "image": "https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             },
             {
                 "name": "Cerca i dispositivi Bluetooth disponibili",
                 "description": "Nella lista dei dispositivi disponibili, cerca il **controller Wireless Xbox** e fai clic su **Connetti**",
-                "timeToRead": 5,
+                "timeToRead": 4,
                 "image": "https://images.pexels.com/photos/1174775/pexels-photo-1174775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 "isSubTasksMandatory": false,
                 "subTasks": [

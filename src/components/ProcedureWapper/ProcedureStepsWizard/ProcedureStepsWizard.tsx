@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { ProcedureStepType } from "../../../types/procedureTypes";
 import PrimaryActionButton from "../../PrimaryActionButton/PrimaryActionButton";
-import { ArrowRightIcon, CheckIcon } from "@heroicons/react/16/solid";
+import { CheckIcon } from "@heroicons/react/16/solid";
 import ShowWhen from "../../ShowWhen/ShowWhen";
-import GrayTone from "../../../assets/gray_tone.jpg"
+import GrayTone from "../../../assets/gray_tone.jpg";
+import NextStepButton from "../NextStepButton/NextStepButton";
 
 interface Props {
   steps: ProcedureStepType[];
@@ -15,7 +16,7 @@ const ProcedureStepsWizard = ({ steps }: Props) => {
     if (isThereAnyNextStep) setCurrentStep(currentStep + 1);
   };
 
-  const { image, description, name } = steps[currentStep];
+  const { image, description, name, timeToRead } = steps[currentStep];
 
   return (
     <>
@@ -36,11 +37,7 @@ const ProcedureStepsWizard = ({ steps }: Props) => {
                 <p className="text-gray-500">{description}</p>
               </div>
               <ShowWhen condition={isThereAnyNextStep}>
-                <PrimaryActionButton
-                  text="Prossimo passo"
-                  onClick={nextStep}
-                  iconAfter={<ArrowRightIcon className="size-4 shrink-0" />}
-                />
+                <NextStepButton nextStep={nextStep} currentStep={currentStep} timeToRead={timeToRead} />
               </ShowWhen>
               <ShowWhen condition={!isThereAnyNextStep}>
                 <PrimaryActionButton
