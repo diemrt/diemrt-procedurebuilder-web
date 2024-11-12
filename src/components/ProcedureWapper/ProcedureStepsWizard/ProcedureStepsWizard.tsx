@@ -1,8 +1,5 @@
 import { useState } from "react";
 import { ProcedureStepType } from "../../../types/procedureTypes";
-import PrimaryActionButton from "../../PrimaryActionButton/PrimaryActionButton";
-import { CheckIcon } from "@heroicons/react/16/solid";
-import ShowWhen from "../../ShowWhen/ShowWhen";
 import GrayTone from "../../../assets/gray_tone.jpg";
 import NextStepButton from "../NextStepButton/NextStepButton";
 
@@ -36,17 +33,7 @@ const ProcedureStepsWizard = ({ steps }: Props) => {
                 </h2>
                 <p className="text-gray-500">{description}</p>
               </div>
-              <ShowWhen condition={isThereAnyNextStep}>
-                <NextStepButton nextStep={nextStep} currentStep={currentStep} timeToRead={timeToRead} />
-              </ShowWhen>
-              <ShowWhen condition={!isThereAnyNextStep}>
-                <PrimaryActionButton
-                  text="Completato"
-                  disabled
-                  className="bg-green-500"
-                  iconAfter={<CheckIcon className="size-4 shrink-0" />}
-                />
-              </ShowWhen>
+                <NextStepButton isThereAnyNextStep={isThereAnyNextStep} nextStep={nextStep} currentStep={currentStep} timeToRead={timeToRead} />
             </div>
           </div>
         </div>
