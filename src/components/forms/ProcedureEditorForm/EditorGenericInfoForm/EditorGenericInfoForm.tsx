@@ -10,7 +10,7 @@ const EditorGenericInfoForm = () => {
   return (
     <Section
       title="Informazioni generali"
-      description="Compila tutti i dati obbligatori, necessari al funzionamento minimo"
+      description="Assicurati di fornire informazioni chiare e dettagliate per aiutare gli utenti a comprendere meglio la procedura."
       isValid={isValid}
     >
       <div className="col-span-2">
