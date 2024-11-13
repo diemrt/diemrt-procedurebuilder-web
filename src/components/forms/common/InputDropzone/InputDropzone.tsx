@@ -6,9 +6,20 @@ import ShowWhen from "../../../ShowWhen/ShowWhen";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
 const InputDropzone = () => {
-  const onDrop = useCallback((acceptedFiles: any) => {
-    console.log(acceptedFiles);
-  }, []);
+const onDrop = useCallback((acceptedFiles: any) => {
+    acceptedFiles.forEach((file: File) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            try {
+                const json = JSON.parse(reader.result as string);
+                console.log(json);
+            } catch (error) {
+                console.error("File non valido o non supportato", error);
+            }
+        };
+        reader.readAsText(file);
+    });
+}, []);
   const { getRootProps, getInputProps, isDragActive, isDragReject } =
     useDropzone({ onDrop, accept: { "application/json": [] } });
 
