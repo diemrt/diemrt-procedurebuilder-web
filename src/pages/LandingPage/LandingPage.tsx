@@ -3,15 +3,19 @@ import Hero1 from "../../assets/hero1.jpg";
 import Hero2 from "../../assets/hero2.jpg";
 import Hero3 from "../../assets/hero3.jpg";
 import Faq from "../../components/common/Faq";
+import InputDropzone from "../../components/forms/common/InputDropzone/InputDropzone";
 
 const LandingPage = () => {
   return (
     <DefaultWrapper>
       <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-8">
         <div className="max-w-3xl text-center mx-auto">
-          <h1 className="block font-medium text-gray-800 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="block font-medium text-gray-800 text-4xl md:text-5xl lg:text-6xl">
             Costruisci, condividi, segui: semplifica ogni processo!
           </h1>
+        </div>
+        <div className="hidden md:block md:px-32 lg:px-60 pt-10">
+          <InputDropzone />
         </div>
         <div className="max-w-3xl text-center mx-auto">
           <p className="text-lg text-black/70">
