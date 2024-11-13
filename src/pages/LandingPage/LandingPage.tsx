@@ -3,7 +3,7 @@ import Hero1 from "../../assets/hero1.jpg";
 import Hero2 from "../../assets/hero2.jpg";
 import Hero3 from "../../assets/hero3.jpg";
 import Faq from "../../components/common/Faq";
-import InputDropzone from "../../components/forms/common/InputDropzone/InputDropzone";
+import LandingInputDropzone from "../../components/forms/LandingInputDropzone/LandingInputDropzone";
 import OpenLoadedProcedureLink from "../../components/OpenLoadedProcedureLink/OpenLoadedProcedureLink";
 
 const LandingPage = () => {
@@ -15,13 +15,13 @@ const LandingPage = () => {
             Costruisci, condividi, segui: semplifica ogni processo!
           </h1>
         </div>
-        <div className="hidden md:block md:px-32 lg:px-60 pt-5">
-          <OpenLoadedProcedureLink />
-          <InputDropzone />
-        </div>
+        <OpenLoadedProcedureLink />
+        <LandingInputDropzone />
         <div className="max-w-3xl text-center mx-auto">
           <p className="text-lg text-black/70">
-            <span className="opacity-90 font-bold">procedure builder</span> è l'app che ti permette di creare, visualizzare e condividere istruzioni passo-passo per ogni tipo di attività.
+            <span className="opacity-90 font-bold">procedure builder</span> è
+            l'app che ti permette di creare, visualizzare e condividere
+            istruzioni passo-passo per ogni tipo di attività.
           </p>
         </div>
         <>
@@ -59,7 +59,8 @@ const LandingPage = () => {
                       Uno strumento accessibile ovunque, senza uso di carta
                     </h2>
                     <p className="text-gray-500 dark:text-neutral-500">
-                      Crea infinite procedure, facili da modificare e accessibili ovunque tramite link o QR code.{" "}
+                      Crea infinite procedure, facili da modificare e
+                      accessibili ovunque tramite link o QR code.{" "}
                       <span className="font-bold">
                         Nessun dato verrà salvato sui nostri server.
                       </span>
