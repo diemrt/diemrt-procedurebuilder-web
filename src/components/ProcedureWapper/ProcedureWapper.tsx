@@ -8,7 +8,7 @@ interface Props {
 }
 const ProcedureLayout = ({ data }: Props) => {
   const { procedure } = data;
-  const { name, description, steps, isStepByStep } = procedure;
+  const { name, description, steps, isStepByStep } = procedure ?? {};
 
   return (
     <div className="max-w-5xl px-4 xl:px-0 py-10 lg:pt-20 lg:pb-20 mx-auto">
