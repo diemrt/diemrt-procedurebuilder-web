@@ -29,7 +29,7 @@ const InputDropzone = () => {
   return (
     <div
       {...getRootProps()}
-      className="px-20 flex flex-col items-center justify-center w-full h-64 p-4 border-2 border-dashed border-blue-300 rounded-lg cursor-pointer bg-blue-50 hover:border-blue-500 focus:outline-none text-blue-400 hover:text-blue-500"
+      className="px-20 flex flex-col items-center justify-center w-full h-64 p-4 border-2 border-dashed border-blue-300 rounded-lg cursor-pointer bg-blue-50 hover:border-blue-500 shadow-xl focus:outline-none text-blue-400 hover:text-blue-500"
     >
       <input {...getInputProps()} className="hidden" />
       <ShowWhen condition={isDragActive && !isDragReject}>

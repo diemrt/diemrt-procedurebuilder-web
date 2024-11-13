@@ -4,6 +4,7 @@ import Hero2 from "../../assets/hero2.jpg";
 import Hero3 from "../../assets/hero3.jpg";
 import Faq from "../../components/common/Faq";
 import InputDropzone from "../../components/forms/common/InputDropzone/InputDropzone";
+import OpenLoadedProcedureLink from "../../components/OpenLoadedProcedureLink/OpenLoadedProcedureLink";
 
 const LandingPage = () => {
   return (
@@ -14,7 +15,8 @@ const LandingPage = () => {
             Costruisci, condividi, segui: semplifica ogni processo!
           </h1>
         </div>
-        <div className="hidden md:block md:px-32 lg:px-60 pt-10">
+        <div className="hidden md:block md:px-32 lg:px-60 pt-5">
+          <OpenLoadedProcedureLink />
           <InputDropzone />
         </div>
         <div className="max-w-3xl text-center mx-auto">
