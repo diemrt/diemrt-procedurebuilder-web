@@ -4,22 +4,25 @@ import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import ShowWhen from "../../../ShowWhen/ShowWhen";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 
 const InputDropzone = () => {
-const onDrop = useCallback((acceptedFiles: any) => {
+  const navigate = useNavigate();
+  const onDrop = useCallback((acceptedFiles: any) => {
     acceptedFiles.forEach((file: File) => {
-        const reader = new FileReader();
-        reader.onload = () => {
-            try {
-                const json = JSON.parse(reader.result as string);
-                console.log(json);
-            } catch (error) {
-                console.error("File non valido o non supportato", error);
-            }
-        };
-        reader.readAsText(file);
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const json = JSON.parse(reader.result as string);
+          localStorage.setItem("procedureLoaded", JSON.stringify(json));
+          navigate("/procedure/render");
+        } catch (error) {
+          console.error("File non valido o non supportato", error);
+        }
+      };
+      reader.readAsText(file);
     });
-}, []);
+  }, [navigate]);
   const { getRootProps, getInputProps, isDragActive, isDragReject } =
     useDropzone({ onDrop, accept: { "application/json": [] } });
 
@@ -41,7 +44,10 @@ const onDrop = useCallback((acceptedFiles: any) => {
         </p>
       </ShowWhen>
       <ShowWhen condition={isDragReject}>
-        <p className="flex items-center font-medium text-2xl text-red-500"><ExclamationTriangleIcon className="me-3 size-6" /> Il file non è valido</p>
+        <p className="flex items-center font-medium text-2xl text-red-500">
+          <ExclamationTriangleIcon className="me-3 size-6" /> Il file non è
+          valido
+        </p>
       </ShowWhen>
       <small>
         Sono ammessi solo file con estensione <code>.json</code>
