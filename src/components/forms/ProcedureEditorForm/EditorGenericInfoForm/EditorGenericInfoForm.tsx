@@ -2,6 +2,7 @@ import { useFormContext, useFormState } from "react-hook-form";
 import Input from "../../common/Input/Input";
 import Section from "../../common/Section/Section";
 import Textarea from "../../common/Textarea/Textarea";
+import Switch from "../../common/Switch/Switch";
 
 const EditorGenericInfoForm = () => {
   const { register } = useFormContext();
@@ -34,6 +35,14 @@ const EditorGenericInfoForm = () => {
               rules={{
                 required: "Campo obbligatorio",
               }}
+            />
+          </div>
+          <div className="col-span-full">
+            <Switch
+              label="Procedura passo-passo"
+              name="isStepByStep"
+              placeholder="Se attivato, la procedura sarà divisa in passaggi. In questo modo gli utenti potranno seguire la procedura passo dopo passo."
+              register={register}
             />
           </div>
         </div>
