@@ -56,11 +56,11 @@ const LandingPage = () => {
                 <div className="space-y-6 sm:space-y-8">
                   <div className="space-y-2 md:space-y-4">
                     <h2 className="font-bold text-3xl lg:text-4xl text-gray-800 dark:text-neutral-200">
-                      Uno strumento accessibile ovunque, senza uso di carta
+                      Uno strumento accessibile da qualsiasi dispositivo
                     </h2>
                     <p className="text-gray-500 dark:text-neutral-500">
                       Crea infinite procedure, facili da modificare e
-                      accessibili ovunque tramite link o QR code.{" "}
+                      accessibili ovunque. Carica un file con le istruzioni della procedura, oppure crearne una da zero.
                       <span className="font-bold">
                         Nessun dato verrà salvato sui nostri server.
                       </span>

@@ -67,9 +67,9 @@ const Faq = () => {
                   Come faccio a creare una procedura?
                 </h3>
                 <p className="mt-1 text-gray-500">
-                  Per creare una procedura, clicca sul bottone qui sotto, scegli un titolo, aggiungi i
-                  passaggi in ordine, rivedi e salva: pronta per essere
-                  condivisa!
+                  Per creare una procedura, clicca sul bottone qui sotto, scegli
+                  un titolo, aggiungi i passaggi in ordine, rivedi e salva:
+                  pronta per essere condivisa!
                 </p>
               </div>
             </div>
@@ -96,8 +96,25 @@ const Faq = () => {
                 <h3 className="md:text-lg font-semibold text-gray-800">
                   Le procedure vengono memorizzate?
                 </h3>
-                <p className="mt-1 text-gray-500">
-                  Non salviamo nessuno dei dati sui nostri server. Quando la procedura è completa, viene generato un link univoco che puoi condividere con chiunque tu voglia, che contiene tutte le informazioni necessarie per visualizzare la procedura. Questo link è l'unico modo per accedere alla procedura, quindi assicurati di conservarlo in un luogo sicuro.
+                <p className="mt-1 text-gray-500 flex flex-col gap-3">
+                  <span>
+                    Quando la procedura è completa, viene creato un file con
+                    estensione <code>.json</code>, che contiene tutte le
+                    informazioni necessarie per visualizzarla.
+                    Questo file viene scaricato nel tuo dispositivo e non viene
+                    mai caricato sui nostri server.
+                  </span>
+                  <span>
+                    Per rendere più semplice il recupero della procedura, viene
+                    memorizzata una copia del file in locale, nel tuo browser,
+                    tuttavia questa copia viene rimossa quando cancelli la cache
+                    del browser.
+                  </span>
+                  <span>
+                    Il file scaricato è l'unico modo per accedere alla procedura in un
+                    secondo momento e da altri dispositivi, quindi <b>assicurati di conservarlo in un
+                    luogo sicuro.</b>
+                  </span>
                 </p>
               </div>
             </div>
