@@ -27,7 +27,7 @@ const LandingInputDropzone = () => {
     [navigate]
   );
   const { getRootProps, getInputProps, isDragActive, isDragReject, open } =
-    useDropzone({ onDrop, accept: { "application/json": [] } });
+    useDropzone({ onDrop, accept: { "application/json": [] }, multiple: false });
 
   return (
     <>
