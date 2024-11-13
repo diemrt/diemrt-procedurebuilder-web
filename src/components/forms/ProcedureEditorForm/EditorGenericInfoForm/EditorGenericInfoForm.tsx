@@ -1,6 +1,7 @@
 import { useFormContext } from "react-hook-form";
 import Input from "../../common/Input/Input";
 import Section from "../../common/Section/Section";
+import Textarea from "../../common/Textarea/Textarea";
 
 const EditorGenericInfoForm = () => {
   const { register } = useFormContext();
@@ -24,9 +25,8 @@ const EditorGenericInfoForm = () => {
             />
           </div>
           <div className="col-span-full">
-            <Input
+            <Textarea
               name="description"
-              type="text"
               label="Descrizione"
               register={register}
               rules={{
