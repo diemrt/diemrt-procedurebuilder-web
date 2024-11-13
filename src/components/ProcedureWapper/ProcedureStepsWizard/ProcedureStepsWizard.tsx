@@ -2,6 +2,8 @@ import { useState } from "react";
 import { ProcedureStepType } from "../../../types/procedureTypes";
 import GrayTone from "../../../assets/gray_tone.jpg";
 import NextStepButton from "../NextStepButton/NextStepButton";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 interface Props {
   steps: ProcedureStepType[];
@@ -31,7 +33,7 @@ const ProcedureStepsWizard = ({ steps }: Props) => {
                 <h2 className="font-black text-3xl lg:text-4xl text-gray-800">
                   {name}
                 </h2>
-                <p className="text-gray-500">{description}</p>
+                <ReactMarkdown className="text-gray-500" children={description} remarkPlugins={[remarkGfm]} />
               </div>
                 <NextStepButton isThereAnyNextStep={isThereAnyNextStep} nextStep={nextStep} currentStep={currentStep} timeToRead={timeToRead} />
             </div>
