@@ -1,9 +1,10 @@
 import DefaultWrapper from "../../components/DefaultWrapper/DefaultWrapper"
+import ProcedureEditorForm from "../../components/forms/ProcedureEditorForm/ProcedureEditorForm"
 
 const ProcedureEditorPage = () => {
   return (
     <DefaultWrapper>
-        <h1>Procedure Editor</h1>
+        <ProcedureEditorForm />
     </DefaultWrapper>
   )
 }
