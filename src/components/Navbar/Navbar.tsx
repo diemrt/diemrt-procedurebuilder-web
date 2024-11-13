@@ -77,12 +77,12 @@ const Navbar = () => {
               >
                 GitHub
               </a>
-              <a
+              <Link
                 className="group inline-flex my-4 mx-3 justify-center md:m-0 items-center gap-x-2 py-2 px-3 bg-blue-500 font-medium text-sm text-white rounded-full focus:outline-none"
-                href="#"
+                to="/procedure/editor"
               >
                 Crea una procedura
-              </a>
+              </Link>
             </div>
           </div>
         </nav>

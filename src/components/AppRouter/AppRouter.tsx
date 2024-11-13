@@ -4,6 +4,7 @@ import ReinitializationHelper from "../ReinitializationHelper/ReinitializationHe
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import DemoPage from "../../pages/DemoPage/DemoPage";
 import ProcedureRenderPage from "../../pages/ProcedureRenderPage/ProcedureRenderPage";
+import ProcedureEditorPage from "../../pages/ProcedureEditorPage/ProcedureEditorPage";
 
 const AppRouter = () => {
   return (
@@ -12,6 +13,7 @@ const AppRouter = () => {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/procedure/demo" element={<DemoPage />} />
+          <Route path="/procedure/editor" element={<ProcedureEditorPage />} />
           <Route path="/procedure/render" element={<ProcedureRenderPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -5,6 +5,8 @@ import Hero3 from "../../assets/hero3.jpg";
 import Faq from "../../components/common/Faq";
 import LandingInputDropzone from "../../components/forms/LandingInputDropzone/LandingInputDropzone";
 import OpenLoadedProcedureLink from "../../components/OpenLoadedProcedureLink/OpenLoadedProcedureLink";
+import { Link } from "react-router-dom";
+import { DocumentIcon } from "@heroicons/react/24/outline";
 
 const LandingPage = () => {
   return (
@@ -146,26 +148,13 @@ const LandingPage = () => {
         </>
         <Faq />
         <div className="text-center">
-          <a
+          <Link
             className="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl bg-blue-500 shadow-lg shadow-transparent hover:shadow-xl border border-transparent text-white text-sm font-medium rounded-full focus:outline-none focus:shadow-blue-700/50 py-3 px-6"
-            href="#"
+            to="/procedure/editor"
           >
             Crea una procedura
-            <svg
-              className="shrink-0 size-4"
-              xmlns="http://www.w3.org/2000/svg"
-              width={24}
-              height={24}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="m9 18 6-6-6-6" />
-            </svg>
-          </a>
+            <DocumentIcon className="size-4" />
+          </Link>
         </div>
       </div>
     </DefaultWrapper>
