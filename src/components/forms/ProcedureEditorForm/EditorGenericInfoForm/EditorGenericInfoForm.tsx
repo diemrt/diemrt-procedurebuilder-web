@@ -39,9 +39,9 @@ const EditorGenericInfoForm = () => {
           </div>
           <div className="col-span-full">
             <Switch
-              label="Procedura passo-passo"
+              label="Procedura guidata"
               name="isStepByStep"
-              placeholder="Se attivato, la procedura sarà divisa in passaggi. In questo modo gli utenti potranno seguire la procedura passo dopo passo."
+              placeholder="Se attivato, la procedura sarà divisa in passaggi che richiederanno un'interazione da parte degli utenti. In questo modo si potrà seguire la procedura passo dopo passo."
               register={register}
             />
           </div>

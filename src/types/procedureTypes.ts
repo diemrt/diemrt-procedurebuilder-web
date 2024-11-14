@@ -6,7 +6,6 @@ export interface ProcedureType {
   name: string;
   description: string;
   isStepByStep: boolean;
-  isConfirmationNeeded: boolean;
   steps: ProcedureStepType[];
 }
 
