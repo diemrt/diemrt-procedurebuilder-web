@@ -1,18 +1,18 @@
-import { useFormContext, useFormState } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import Input from "../../common/Input/Input";
 import Section from "../../common/Section/Section";
 import Textarea from "../../common/Textarea/Textarea";
 import Switch from "../../common/Switch/Switch";
+import { InformationCircleIcon } from "@heroicons/react/24/outline";
 
 const EditorGenericInfoForm = () => {
   const { register } = useFormContext();
-  const { isValid } = useFormState();
 
   return (
     <Section
       title="Informazioni generali"
       description="Assicurati di fornire informazioni chiare e dettagliate per aiutare gli utenti a comprendere meglio la procedura."
-      isValid={isValid}
+      icon={<InformationCircleIcon className="me-2 size-5" />}
     >
       <div className="col-span-2">
         <div className="md:grid md:grid-cols-3 md:gap-5">

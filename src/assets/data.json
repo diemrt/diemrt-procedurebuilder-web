@@ -8,17 +8,7 @@
                 "name": "Tieni premuto il tasto A+Home per 3 secondi",
                 "description": "L'indicatore LED lampeggerà rapidamente per accedere alla modalità di accoppiamento",
                 "image": "https://images.pexels.com/photos/21067/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                "timeToRead": 5,
-                "isSubTasksMandatory": true,
-                "subTasks": [
-                    {
-                        "name": "Esegui il reset del controller se necessario",
-                        "description": "Usando un oggetto appuntito, premi il pulsante di reset posto sul retro del controller"
-                    },
-                    {
-                        "name": "Assicurati che il controller sia carico"
-                    }
-                ]
+                "timeToRead": 5
             },
             {
                 "name": "Attiva il Bluetooth sul tuo dispositivo",
@@ -30,13 +20,7 @@
                 "name": "Cerca i dispositivi Bluetooth disponibili",
                 "description": "Nella lista dei dispositivi disponibili, cerca il controller **Wireless Xbox** e fai clic su **Connetti**",
                 "image": "https://images.pexels.com/photos/1174775/pexels-photo-1174775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                "timeToRead": 5,
-                "isSubTasksMandatory": false,
-                "subTasks": [
-                    {
-                        "name": "Se la connessione ha esito positivo, il LED2 rimane acceso"
-                    }
-                ]
+                "timeToRead": 5
             }
         ]
     }
