@@ -1,4 +1,8 @@
 import { useFormContext, useFieldArray } from 'react-hook-form';
+import Section from "../../common/Section/Section";
+import Input from "../../common/Input/Input";
+import Textarea from "../../common/Textarea/Textarea";
+import { InformationCircleIcon } from "@heroicons/react/24/outline";
 
 const EditorStepsForm = () => {
     const { control, register } = useFormContext();
@@ -14,30 +18,59 @@ const EditorStepsForm = () => {
     return (
         <div>
             {fields.map((field, index) => (
-                <div key={field.id}>
-                    <input
-                        type="text"
-                        placeholder="Step Name"
-                        {...register(`steps.${index}.name` as const)}
-                    />
-                    <textarea
-                        placeholder="Step Description"
-                        {...register(`steps.${index}.description` as const)}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Image URL"
-                        {...register(`steps.${index}.image` as const)}
-                    />
-                    <input
-                        type="number"
-                        placeholder="Time to Read (minutes)"
-                        {...register(`steps.${index}.timeToRead` as const)}
-                    />
-                    <button type="button" onClick={() => remove(index)}>Remove Step</button>
-                </div>
+                <Section
+                    key={field.id}
+                    title={`Step ${index + 1}`}
+                    description="Fornisci i dettagli per questo passaggio."
+                    icon={<InformationCircleIcon className="me-2 size-5" />}
+                >
+                    <div className="col-span-2">
+                        <div className="md:grid md:grid-cols-3 md:gap-5">
+                            <div className="col-span-full">
+                                <Input
+                                    name={`steps.${index}.name`}
+                                    type="text"
+                                    label="Nome del Passaggio"
+                                    register={register}
+                                    rules={{
+                                        required: "Campo obbligatorio",
+                                    }}
+                                />
+                            </div>
+                            <div className="col-span-full">
+                                <Textarea
+                                    name={`steps.${index}.description`}
+                                    label="Descrizione del Passaggio"
+                                    register={register}
+                                    rules={{
+                                        required: "Campo obbligatorio",
+                                    }}
+                                />
+                            </div>
+                            <div className="col-span-full">
+                                <Input
+                                    name={`steps.${index}.image`}
+                                    type="text"
+                                    label="URL dell'Immagine"
+                                    register={register}
+                                />
+                            </div>
+                            <div className="col-span-full">
+                                <Input
+                                    name={`steps.${index}.timeToRead`}
+                                    type="number"
+                                    label="Tempo di Lettura (minuti)"
+                                    register={register}
+                                />
+                            </div>
+                            <div className="col-span-full">
+                                <button type="button" onClick={() => remove(index)}>Rimuovi Passaggio</button>
+                            </div>
+                        </div>
+                    </div>
+                </Section>
             ))}
-            <button type="button" onClick={handleAddStep}>Add Step</button>
+            <button type="button" onClick={handleAddStep}>Aggiungi Passaggio</button>
         </div>
     );
 };
