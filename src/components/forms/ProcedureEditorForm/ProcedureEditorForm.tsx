@@ -15,7 +15,7 @@ const ProcedureEditorForm = () => {
               Editor procedure
             </h2>
             <p className="mt-1 text-neutral-800">
-              Potrai creare una procedura da zero, o usare una procedura
+              Puoi creare una procedura da zero, o usare una procedura
               esistente e modificarne il contenuto
             </p>
           </div>
