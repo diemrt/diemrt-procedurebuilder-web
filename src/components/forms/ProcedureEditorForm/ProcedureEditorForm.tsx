@@ -1,6 +1,7 @@
 import { FieldValues, FormProvider, useForm } from "react-hook-form";
 import BackToLink from "../../BackToLink/BackToLink";
 import EditorGenericInfoForm from "./EditorGenericInfoForm/EditorGenericInfoForm";
+import EditorStepsForm from "./EditorStepsForm/EditorStepsForm";
 
 const ProcedureEditorForm = () => {
   const formProps = useForm<FieldValues>();
@@ -20,6 +21,7 @@ const ProcedureEditorForm = () => {
             </p>
           </div>
           <EditorGenericInfoForm />
+          <EditorStepsForm />
         </div>
       </div>
     </FormProvider>
