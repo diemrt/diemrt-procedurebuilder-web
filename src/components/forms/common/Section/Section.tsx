@@ -8,12 +8,12 @@ interface Props {
 
 const Section = ({ children, title, description, icon }: Props) => {
   return (
-    <div className="max-w-[85rem] pt-10 lg:pt-14 mx-auto">
+    <div className="max-w-[85rem] pt-10 mx-auto">
       <div
-        className="md:grid md:grid-cols-3 md:gap-12 xl:gap-32 border border-blue-500 bg-gray-50 rounded-xl p-8"
+        className="md:grid md:grid-cols-3 md:gap-12 xl:gap-32 border border-gray-300 bg-gray-50 rounded-xl p-8"
       >
         <div className="mb-6">
-          <h2 className="font-bold text-sm text-blue-500 flex items-center">
+          <h2 className="font-bold text-sm text-gray-900 flex items-center">
             {icon}
             {title}
           </h2>

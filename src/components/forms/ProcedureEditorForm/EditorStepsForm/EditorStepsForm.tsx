@@ -63,7 +63,7 @@ const EditorStepsForm = () => {
                 <Input
                   name={`steps.${index}.timeToRead`}
                   type="number"
-                  label="Tempo di Lettura (minuti)"
+                  label="Tempo di Lettura (secondi)"
                   register={register}
                 />
               </div>
