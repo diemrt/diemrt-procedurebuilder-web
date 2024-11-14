@@ -1,6 +1,7 @@
 import { ProcedureRootType } from "../../types/procedureTypes";
 import BackToLink from "../BackToLink/BackToLink";
 import ShowWhen from "../ShowWhen/ShowWhen";
+import ProcedureStepsList from "./ProcedureStepsList/ProcedureStepsList";
 import ProcedureStepsWizard from "./ProcedureStepsWizard/ProcedureStepsWizard";
 
 interface Props {
@@ -22,6 +23,9 @@ const ProcedureLayout = ({ data }: Props) => {
         </div>
         <ShowWhen condition={isStepByStep}>
           <ProcedureStepsWizard steps={steps} />
+        </ShowWhen>
+        <ShowWhen condition={!isStepByStep}>
+          <ProcedureStepsList />
         </ShowWhen>
       </div>
     </div>

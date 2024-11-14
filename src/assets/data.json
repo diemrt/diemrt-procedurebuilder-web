@@ -2,7 +2,7 @@
     "procedure": {
         "name": "Connessione Controller Wireless EasySMX - PC",
         "description": "Questa procedura ti guiderà attraverso i passaggi per connettere il controller wireless EasySMX al tuo dispositivo",
-        "isStepByStep": true,
+        "isStepByStep": false,
         "steps": [
             {
                 "name": "Tieni premuto il tasto A+Home per 3 secondi",
