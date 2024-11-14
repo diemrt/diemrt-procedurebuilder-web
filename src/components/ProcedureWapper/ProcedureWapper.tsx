@@ -25,7 +25,7 @@ const ProcedureLayout = ({ data }: Props) => {
           <ProcedureStepsWizard steps={steps} />
         </ShowWhen>
         <ShowWhen condition={!isStepByStep}>
-          <ProcedureStepsList />
+          <ProcedureStepsList steps={steps} />
         </ShowWhen>
       </div>
     </div>
