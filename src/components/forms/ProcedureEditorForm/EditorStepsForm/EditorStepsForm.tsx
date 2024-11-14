@@ -1,4 +1,4 @@
-import { useFormContext, useFieldArray } from "react-hook-form";
+import { useFormContext, useFieldArray, useFormState } from "react-hook-form";
 import Section from "../../common/Section/Section";
 import Input from "../../common/Input/Input";
 import Textarea from "../../common/Textarea/Textarea";
@@ -7,10 +7,13 @@ import EditorToolbar from "./EditorToolbar/EditorToolbar";
 
 const EditorStepsForm = () => {
   const { control, register } = useFormContext();
+  const { isValid } = useFormState();
   const { fields, append, remove } = useFieldArray({
     control,
     name: "steps",
   });
+
+  const isFormValid = fields.length > 0 && isValid;
 
   const handleAddStep = () => {
     append({ name: "", description: "", image: "", timeToRead: 0 });
@@ -88,7 +91,7 @@ const EditorStepsForm = () => {
           </div>
         </Section>
       ))}
-      <EditorToolbar onAddStep={handleAddStep}/>
+      <EditorToolbar onAddStep={handleAddStep} isValid={isFormValid}/>
     </div>
   );
 };

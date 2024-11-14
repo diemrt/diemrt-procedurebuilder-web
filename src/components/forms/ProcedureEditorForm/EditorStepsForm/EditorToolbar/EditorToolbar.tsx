@@ -1,14 +1,12 @@
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
-import { useFormState } from "react-hook-form";
 import ShowWhen from "../../../../ShowWhen/ShowWhen";
 import { ArrowDownTrayIcon } from "@heroicons/react/24/outline";
 
 interface Props {
   onAddStep: () => void;
+  isValid: boolean;
 }
-const EditorToolbar = ({ onAddStep }: Props) => {
-  const { isValid } = useFormState();
-
+const EditorToolbar = ({ onAddStep, isValid }: Props) => {
   return (
     <>
       <ShowWhen condition={isValid}>
