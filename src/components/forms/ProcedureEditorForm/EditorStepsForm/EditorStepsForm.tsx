@@ -2,8 +2,8 @@ import { useFormContext, useFieldArray } from "react-hook-form";
 import Section from "../../common/Section/Section";
 import Input from "../../common/Input/Input";
 import Textarea from "../../common/Textarea/Textarea";
-import { InformationCircleIcon } from "@heroicons/react/24/outline";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
+import { DocumentTextIcon } from "@heroicons/react/24/outline";
 
 const EditorStepsForm = () => {
   const { control, register } = useFormContext();
@@ -23,7 +23,7 @@ const EditorStepsForm = () => {
           key={field.id}
           title={`Passo ${index + 1}`}
           description="Ogni passo rappresenta un'azione che l'utente dovrà compiere per completare la procedura."
-          icon={<InformationCircleIcon className="me-2 size-5" />}
+          icon={<DocumentTextIcon className="me-2 size-5" />}
         >
           <div className="col-span-2">
             <div className="md:grid md:grid-cols-3 md:gap-5">
