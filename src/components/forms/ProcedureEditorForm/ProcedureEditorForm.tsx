@@ -2,9 +2,37 @@ import { FieldValues, FormProvider, useForm } from "react-hook-form";
 import BackToLink from "../../BackToLink/BackToLink";
 import EditorGenericInfoForm from "./EditorGenericInfoForm/EditorGenericInfoForm";
 import EditorStepsForm from "./EditorStepsForm/EditorStepsForm";
+import { ProcedureRootType } from "../../../types/procedureTypes";
 
 const ProcedureEditorForm = () => {
   const formProps = useForm<FieldValues>();
+  const { handleSubmit } = formProps;
+
+  const onSubmit = (data: FieldValues) => {
+    const procedureData: ProcedureRootType = {
+      procedure: {
+        name: data.title,
+        description: data.description,
+        isStepByStep: data.isStepByStep,
+        steps: data.steps.map((step: any) => ({
+          name: step.name,
+          description: step.description,
+          image: step.image,
+          timeToRead: step.timeToRead,
+        })),
+      },
+    };
+    const json = JSON.stringify(procedureData, null, 2);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `procedure_${data.title}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <FormProvider {...formProps}>
@@ -16,12 +44,14 @@ const ProcedureEditorForm = () => {
               Editor procedure
             </h2>
             <p className="mt-1 text-neutral-800">
-              Puoi creare una procedura da zero, o usare una procedura
-              esistente e modificarne il contenuto
+              Puoi creare una procedura da zero, o usare una procedura esistente
+              e modificarne il contenuto
             </p>
           </div>
-          <EditorGenericInfoForm />
-          <EditorStepsForm />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <EditorGenericInfoForm />
+            <EditorStepsForm />
+          </form>
         </div>
       </div>
     </FormProvider>

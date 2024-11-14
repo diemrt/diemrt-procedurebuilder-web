@@ -11,7 +11,7 @@ const EditorToolbar = ({ onAddStep, isValid }: Props) => {
     <>
       <ShowWhen condition={isValid}>
         <button
-          type="button"
+          type="submit"
           className="fixed bottom-24 right-10 p-3 border rounded-full shadow-md focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 y-1.5 inline-flex items-center gap-x-2 text-sm font-medium bg-green-500 text-white hover:shadow-xl focus:outline-none"
         >
           <ArrowDownTrayIcon className="size-5" />
