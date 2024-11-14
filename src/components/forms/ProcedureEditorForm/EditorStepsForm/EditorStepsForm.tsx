@@ -2,8 +2,8 @@ import { useFormContext, useFieldArray } from "react-hook-form";
 import Section from "../../common/Section/Section";
 import Input from "../../common/Input/Input";
 import Textarea from "../../common/Textarea/Textarea";
-import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { DocumentTextIcon } from "@heroicons/react/24/outline";
+import EditorToolbar from "./EditorToolbar/EditorToolbar";
 
 const EditorStepsForm = () => {
   const { control, register } = useFormContext();
@@ -88,16 +88,10 @@ const EditorStepsForm = () => {
           </div>
         </Section>
       ))}
-      <button
-        type="button"
-        onClick={handleAddStep}
-        className="fixed bottom-10 right-10 px-7 py-3 border rounded-full shadow-md focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 y-1.5 inline-flex items-center gap-x-2 text-sm font-medium bg-blue-500 text-white hover:shadow-xl focus:outline-none disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
-      >
-        <PlusCircleIcon className="size-5" />
-        Aggiungi passo
-      </button>
+      <EditorToolbar onAddStep={handleAddStep}/>
     </div>
   );
 };
 
 export default EditorStepsForm;
+
