@@ -8,5 +8,6 @@ export const copyLinkToClipboard = (link: string) => {
 export const generateUniqueFileName = (fileName: string) => {
   const date = new Date();
   const timestamp = date.getTime();
-  return `${fileName}-${timestamp}`;
+  const sanitizedFileName = fileName.replace(/\s+/g, '-');
+  return `${sanitizedFileName}-${timestamp}`;
 };
