@@ -46,6 +46,7 @@ useEffect(() => {
         }
         if (data) {
             const text = await data.text();
+            localStorage.setItem("procedureLoaded", text);
             setProcedureData(text);
         }
         setIsLoading(false);
