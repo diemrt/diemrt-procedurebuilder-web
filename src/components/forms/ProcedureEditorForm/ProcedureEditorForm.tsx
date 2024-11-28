@@ -3,10 +3,15 @@ import BackToLink from "../../BackToLink/BackToLink";
 import EditorGenericInfoForm from "./EditorGenericInfoForm/EditorGenericInfoForm";
 import EditorStepsForm from "./EditorStepsForm/EditorStepsForm";
 import { ProcedureRootType } from "../../../types/procedureTypes";
+import { useState } from "react";
+import ShowWhen from "../../ShowWhen/ShowWhen";
+import EditorSaveProcedureForm from "./EditorSaveProcedureForm/EditorSaveProcedureForm";
 
 const ProcedureEditorForm = () => {
   const formProps = useForm<FieldValues>();
   const { handleSubmit } = formProps;
+
+  const [isFormValid, setIsFormValid] = useState(false);
 
   const onSubmit = (data: FieldValues) => {
     const procedureData: ProcedureRootType = {
@@ -23,9 +28,9 @@ const ProcedureEditorForm = () => {
       },
     };
     const json = JSON.stringify(procedureData, null, 2);
-    const blob = new Blob([json], { type: 'application/json' });
+    const blob = new Blob([json], { type: "application/json" });
     const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = url;
     link.download = `procedure_${data.title}.json`;
     document.body.appendChild(link);
@@ -49,8 +54,11 @@ const ProcedureEditorForm = () => {
             </p>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
+            <ShowWhen condition={isFormValid}>
+              <EditorSaveProcedureForm />
+            </ShowWhen>
             <EditorGenericInfoForm />
-            <EditorStepsForm />
+            <EditorStepsForm {...{ isFormValid, setIsFormValid }} />
           </form>
         </div>
       </div>

@@ -4,8 +4,13 @@ import Input from "../../common/Input/Input";
 import Textarea from "../../common/Textarea/Textarea";
 import { DocumentTextIcon } from "@heroicons/react/24/outline";
 import EditorToolbar from "./EditorToolbar/EditorToolbar";
+import { useEffect } from "react";
 
-const EditorStepsForm = () => {
+interface Props {
+  setIsFormValid: React.Dispatch<React.SetStateAction<boolean>>;
+  isFormValid: boolean;
+}
+const EditorStepsForm = ({ isFormValid, setIsFormValid }: Props) => {
   const { control, register } = useFormContext();
   const { isValid } = useFormState();
   const { fields, append, remove } = useFieldArray({
@@ -13,7 +18,9 @@ const EditorStepsForm = () => {
     name: "steps",
   });
 
-  const isFormValid = fields.length > 0 && isValid;
+  useEffect(() => {
+    setIsFormValid(fields.length > 0 && isValid);
+  }, [isValid, setIsFormValid, fields]);
 
   const handleAddStep = () => {
     append({ name: "", description: "", image: "", timeToRead: 0 });
@@ -76,7 +83,8 @@ const EditorStepsForm = () => {
                     Zona pericolosa
                   </h3>
                   <p className="mt-1 text-sm text-gray-600 dark:text-neutral-400">
-                    Questa azione è irreversibile, prima di procedere assicurati di voler rimuovere il passo definitivamente.
+                    Questa azione è irreversibile, prima di procedere assicurati
+                    di voler rimuovere il passo definitivamente.
                   </p>
                   <button
                     type="button"
@@ -91,10 +99,9 @@ const EditorStepsForm = () => {
           </div>
         </Section>
       ))}
-      <EditorToolbar onAddStep={handleAddStep} isValid={isFormValid}/>
+      <EditorToolbar onAddStep={handleAddStep} isValid={isFormValid} />
     </div>
   );
 };
 
 export default EditorStepsForm;
-
