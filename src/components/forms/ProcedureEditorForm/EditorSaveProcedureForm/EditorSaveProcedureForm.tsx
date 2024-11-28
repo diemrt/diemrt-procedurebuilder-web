@@ -1,8 +1,8 @@
-import { CheckCircleIcon } from "@heroicons/react/24/outline";
+import { CheckCircleIcon, CloudArrowUpIcon } from "@heroicons/react/24/outline";
 import SuccessSection from "../../common/SuccessSection/SuccessSection";
 import Input from "../../common/Input/Input";
 import { useFormContext } from "react-hook-form";
-import { toast } from "react-toastify";
+import { copyLinkToClipboard } from "../utils";
 
 const EditorSaveProcedureForm = () => {
   const { register, watch } = useFormContext();
@@ -24,11 +24,18 @@ const EditorSaveProcedureForm = () => {
               readOnly
               register={register}
               onClick={() => {
-                toast.success("Link copiato negli appunti!");
-                navigator.clipboard.writeText(watch("link"));
+                copyLinkToClipboard(watch("link"));
               }}
             />
           </div>
+          
+            <button
+              type="submit"
+              className="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl bg-green-500 shadow-lg shadow-transparent hover:shadow-xl border border-transparent text-white text-sm font-medium rounded-full focus:outline-none focus:shadow-green-700/50 py-3 px-6"
+            >
+              <CloudArrowUpIcon className="size-5" />
+              Salva e scarica
+            </button>
         </div>
       </div>
     </SuccessSection>

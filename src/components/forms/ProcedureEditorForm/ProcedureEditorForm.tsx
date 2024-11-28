@@ -6,6 +6,9 @@ import { ProcedureRootType } from "../../../types/procedureTypes";
 import { useState } from "react";
 import ShowWhen from "../../ShowWhen/ShowWhen";
 import EditorSaveProcedureForm from "./EditorSaveProcedureForm/EditorSaveProcedureForm";
+import { copyLinkToClipboard, generateUniqueFileName } from "./utils";
+import { supabaseClient } from "../../../api/supabaseUtils";
+import { toast } from "react-toastify";
 
 const ProcedureEditorForm = () => {
   const formProps = useForm<FieldValues>();
@@ -13,7 +16,7 @@ const ProcedureEditorForm = () => {
 
   const [isFormValid, setIsFormValid] = useState(false);
 
-  const onSubmit = (data: FieldValues) => {
+  const onSubmit = async (data: FieldValues) => {
     const procedureData: ProcedureRootType = {
       procedure: {
         name: data.title,
@@ -32,11 +35,24 @@ const ProcedureEditorForm = () => {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `procedure_${data.title}.json`;
+    link.download = `${generateUniqueFileName(data.title)}.json`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
+
+    const { data: storageData, error: storageError } = await supabaseClient.storage.from(import.meta.env.VITE_SUPABASE_BUCKET).upload(`public/${generateUniqueFileName(data.title)}.json`, blob);
+    if (storageData) {
+      toast.success("Procedura salvata correttamente!");
+    }
+    if (storageError) {
+      toast.error(`Errore durante il caricamento del file: ${storageError.message}`);
+      return;
+    }
+
+    const storageLink = `${import.meta.env.VITE_SELF_URL}/procedure/${generateUniqueFileName(data.title)}`;
+    formProps.setValue("link", storageLink);
+    copyLinkToClipboard(storageLink);
   };
 
   return (
