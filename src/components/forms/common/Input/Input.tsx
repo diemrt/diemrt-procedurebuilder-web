@@ -12,6 +12,9 @@ interface Props<TFieldValues extends FieldValues> {
   type?: React.HTMLInputTypeAttribute;
   placeholder?: string;
   register: UseFormRegister<TFieldValues>;
+  disabled?: boolean;
+  readOnly?: boolean;
+  onClick?: () => void;
 }
 const Input = <TFieldValues extends Record<string, unknown>>({
   name,
