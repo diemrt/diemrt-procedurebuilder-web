@@ -62,85 +62,9 @@ const LandingPage = () => {
                     </h2>
                     <p className="text-gray-500 dark:text-neutral-500">
                       Crea infinite procedure, facili da modificare e
-                      accessibili ovunque. Carica un file con le istruzioni della procedura, oppure crearne una da zero.
-                      <span className="font-bold">
-                        Nessun dato verrà salvato sui nostri server.
-                      </span>
+                      accessibili ovunque. Carica un file con le istruzioni della procedura, oppure crearne una da zero con il nostro editor.
                     </p>
                   </div>
-                  <ul className="space-y-2 sm:space-y-4">
-                    <li className="flex gap-x-3">
-                      <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-800/30 dark:text-blue-500">
-                        <svg
-                          className="shrink-0 size-3.5"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={24}
-                          height={24}
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                      </span>
-                      <div className="grow">
-                        <span className="text-sm sm:text-base text-gray-500 dark:text-neutral-500">
-                          <span className="font-bold">Meno carta</span> e più
-                          accessibilità
-                        </span>
-                      </div>
-                    </li>
-                    <li className="flex gap-x-3">
-                      <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-800/30 dark:text-blue-500">
-                        <svg
-                          className="shrink-0 size-3.5"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={24}
-                          height={24}
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                      </span>
-                      <div className="grow">
-                        <span className="text-sm sm:text-base text-gray-500 dark:text-neutral-500">
-                          Infiniti utilizzi,{" "}
-                          <span className="font-bold">nessun limite</span>
-                        </span>
-                      </div>
-                    </li>
-                    <li className="flex gap-x-3">
-                      <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-800/30 dark:text-blue-500">
-                        <svg
-                          className="shrink-0 size-3.5"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={24}
-                          height={24}
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                      </span>
-                      <div className="grow">
-                        <span className="text-sm sm:text-base text-gray-500 dark:text-neutral-500">
-                          Sicuro e trasparente
-                        </span>
-                      </div>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </div>

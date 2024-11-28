@@ -101,8 +101,7 @@ const Faq = () => {
                     Quando la procedura è completa, viene creato un file con
                     estensione <code>.json</code>, che contiene tutte le
                     informazioni necessarie per visualizzarla.
-                    Questo file viene scaricato nel tuo dispositivo e non viene
-                    mai caricato sui nostri server.
+                    Questo file viene caricato in uno storage cloud, in modo da poter essere condiviso tramite un link univoco.
                   </span>
                   <span>
                     Per rendere più semplice il recupero della procedura, viene
@@ -111,7 +110,7 @@ const Faq = () => {
                     del browser.
                   </span>
                   <span>
-                    Il file scaricato è l'unico modo per accedere alla procedura in un
+                    Il link generato è l'unico modo per accedere alla procedura in un
                     secondo momento e da altri dispositivi, quindi <b>assicurati di conservarlo in un
                     luogo sicuro.</b>
                   </span>
