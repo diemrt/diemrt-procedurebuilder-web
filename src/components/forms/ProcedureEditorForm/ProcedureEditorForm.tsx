@@ -30,18 +30,19 @@ const ProcedureEditorForm = () => {
         })),
       },
     };
+    const fileName = generateUniqueFileName(data.title);
     const json = JSON.stringify(procedureData, null, 2);
     const blob = new Blob([json], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `${generateUniqueFileName(data.title)}.json`;
+    link.download = `${fileName}.json`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
 
-    const { data: storageData, error: storageError } = await supabaseClient.storage.from(import.meta.env.VITE_SUPABASE_BUCKET).upload(`public/${generateUniqueFileName(data.title)}.json`, blob);
+    const { data: storageData, error: storageError } = await supabaseClient.storage.from(import.meta.env.VITE_SUPABASE_BUCKET).upload(`public/${fileName}.json`, blob);
     if (storageData) {
       toast.success("Procedura salvata correttamente!");
     }
@@ -50,7 +51,7 @@ const ProcedureEditorForm = () => {
       return;
     }
 
-    const storageLink = `${import.meta.env.VITE_SELF_URL}/procedure/${generateUniqueFileName(data.title)}`;
+    const storageLink = `${import.meta.env.VITE_SELF_URL}/procedure/${fileName}`;
     formProps.setValue("link", storageLink);
     copyLinkToClipboard(storageLink);
   };

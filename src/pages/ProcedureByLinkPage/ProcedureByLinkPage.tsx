@@ -6,6 +6,7 @@ import InvalidRenderPage from "./InvalidRenderPage/InvalidRenderPage";
 import { supabaseClient } from "../../api/supabaseUtils";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import ShowWhen from "../../components/ShowWhen/ShowWhen";
 
 const useProcedureValidation = (data: ProcedureRootType) => {
   const [isValid, setIsValid] = useState(true);
@@ -30,23 +31,27 @@ const useProcedureValidation = (data: ProcedureRootType) => {
 const ProcedureByLinkPage = () => {
   const { link } = useParams();
   const [procedureData, setProcedureData] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
+useEffect(() => {
     async function fetchData() {
-      const { data, error } = await supabaseClient.storage
-        .from(import.meta.env.VITE_SUPABASE_BUCKET)
-        .download(`public/${link}.json`);
-      if (error) {
-        toast.error(`Errore durante il download della procedura: ${error.message}`);
-        return;
-      }
-      if (data) {
-        const text = await data.text();
-        setProcedureData(text)
-      }
+        setIsLoading(true);
+        const { data, error } = await supabaseClient.storage
+            .from(import.meta.env.VITE_SUPABASE_BUCKET)
+            .download(`public/${link}.json`);
+        if (error) {
+            toast.error(`Errore durante il download della procedura: ${error.message}`);
+            setIsLoading(false);
+            return;
+        }
+        if (data) {
+            const text = await data.text();
+            setProcedureData(text);
+        }
+        setIsLoading(false);
     }
     fetchData();
-  }, [link]);
+}, [link]);
 
   const procedureLoaded = procedureData;
   const obj = procedureLoaded ? JSON.parse(procedureLoaded) : {};
@@ -54,7 +59,7 @@ const ProcedureByLinkPage = () => {
   const isValidProcedure = useProcedureValidation(obj as ProcedureRootType);
 
   return (
-    <>
+    <ShowWhen condition={!isLoading}>
       <MinimalNavbar />
       {isObjValid && isValidProcedure ? (
         <div className="bg-gradient-to-b from-blue-600/10 via-transparent pt-10 md:pt-5">
@@ -63,7 +68,7 @@ const ProcedureByLinkPage = () => {
       ) : (
         <InvalidRenderPage />
       )}
-    </>
+    </ShowWhen>
   );
 };
 
