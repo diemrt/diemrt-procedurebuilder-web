@@ -1,8 +1,27 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavbarLogo from "./NavbarLogo/NavbarLogo";
 import { ArrowRightStartOnRectangleIcon } from "@heroicons/react/24/outline";
+import { checkAuthState, signOutUser } from "../../api/firebase/firebaseUtils";
+import { useEffect, useState } from "react";
+import ShowWhen from "../ShowWhen/ShowWhen";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogout = async () => {
+    await signOutUser();
+    navigate("/");
+  };
+
+  useEffect(() => {
+    checkAuthState((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      }
+    });
+  }, []);
+
   return (
     <>
       <header className="fixed top-0 inset-x-0 flex justify-center flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
@@ -78,12 +97,15 @@ const Navbar = () => {
               >
                 Crea una procedura
               </Link>
-              <button
-                className="group inline-flex my-4 mx-3 justify-center md:m-0 items-center gap-x-2 py-2 px-3 bg-gray-400 font-medium text-sm text-white rounded-full focus:outline-none"
-              >
-                Esci
-                <ArrowRightStartOnRectangleIcon className="w-5 h-5" />
-              </button>
+              <ShowWhen condition={isLoggedIn}>
+                <button
+                  className="group inline-flex my-4 mx-3 justify-center md:m-0 items-center gap-x-2 py-2 px-3 bg-gray-400 font-medium text-sm text-white rounded-full focus:outline-none"
+                  onClick={handleLogout}
+                >
+                  Esci
+                  <ArrowRightStartOnRectangleIcon className="w-5 h-5" />
+                </button>
+              </ShowWhen>
             </div>
           </div>
         </nav>
