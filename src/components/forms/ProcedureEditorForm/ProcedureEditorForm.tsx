@@ -2,13 +2,10 @@ import { FieldValues, FormProvider, useForm } from "react-hook-form";
 import BackToLink from "../../BackToLink/BackToLink";
 import EditorGenericInfoForm from "./EditorGenericInfoForm/EditorGenericInfoForm";
 import EditorStepsForm from "./EditorStepsForm/EditorStepsForm";
-import { ProcedureRootType } from "../../../types/procedureTypes";
 import { useState } from "react";
 import ShowWhen from "../../ShowWhen/ShowWhen";
 import EditorSaveProcedureForm from "./EditorSaveProcedureForm/EditorSaveProcedureForm";
-import { copyLinkToClipboard, generateUniqueFileName } from "./utils";
-import { supabaseClient } from "../../../api/supabaseUtils";
-import { toast } from "react-toastify";
+import { copyLinkToClipboard, createBlob, createProcedureData, downloadFile, generateStorageLink, generateUniqueFileName, handleError, updateFormWithLink, uploadFileToStorage } from "./utils";
 
 const ProcedureEditorForm = () => {
   const isUpdate = window.location.href.includes("update");
@@ -28,45 +25,18 @@ const ProcedureEditorForm = () => {
   const [isFormValid, setIsFormValid] = useState(false);
 
   const onSubmit = async (data: FieldValues) => {
-    const procedureData: ProcedureRootType = {
-      procedure: {
-        name: data.title,
-        description: data.description,
-        isStepByStep: data.isStepByStep,
-        steps: data.steps,
-      },
-    };
-    const fileName = generateUniqueFileName(data.title);
-    const json = JSON.stringify(procedureData, null, 2);
-    const blob = new Blob([json], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = `${fileName}.json`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-
-    const { data: storageData, error: storageError } =
-      await supabaseClient.storage
-        .from(import.meta.env.VITE_SUPABASE_BUCKET)
-        .upload(`public/${fileName}.json`, blob);
-    if (storageData) {
-      toast.success("Procedura salvata correttamente!");
+    try {
+      const procedureData = createProcedureData(data);
+      const fileName = generateUniqueFileName(data.title);
+      const blob = createBlob(procedureData);
+      downloadFile(blob, fileName);
+      await uploadFileToStorage(blob, fileName);
+      const storageLink = generateStorageLink(fileName);
+      updateFormWithLink(storageLink, formProps);
+      copyLinkToClipboard(storageLink);
+    } catch (error: any) {
+      handleError(error);
     }
-    if (storageError) {
-      toast.error(
-        `Errore durante il caricamento del file: ${storageError.message}`
-      );
-      return;
-    }
-
-    const storageLink = `${
-      import.meta.env.VITE_SELF_URL
-    }/procedure/${fileName}`;
-    formProps.setValue("link", storageLink);
-    copyLinkToClipboard(storageLink);
   };
 
   return (
