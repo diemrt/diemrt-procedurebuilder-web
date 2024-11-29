@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import NavbarLogo from "./NavbarLogo/NavbarLogo";
+import { ArrowRightStartOnRectangleIcon } from "@heroicons/react/24/outline";
 
 const Navbar = () => {
   return (
@@ -77,6 +78,12 @@ const Navbar = () => {
               >
                 Crea una procedura
               </Link>
+              <button
+                className="group inline-flex my-4 mx-3 justify-center md:m-0 items-center gap-x-2 py-2 px-3 bg-gray-400 font-medium text-sm text-white rounded-full focus:outline-none"
+              >
+                Esci
+                <ArrowRightStartOnRectangleIcon className="w-5 h-5" />
+              </button>
             </div>
           </div>
         </nav>

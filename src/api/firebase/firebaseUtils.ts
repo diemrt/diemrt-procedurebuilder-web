@@ -17,6 +17,7 @@ const auth = getAuth(app);
 export const signInWithEmail = async (email: string, password: string): Promise<User | null> => {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        toast.success("Login effettuato con successo.");
         return userCredential.user;
     } catch (error: any) {
         toast.error(`Errore durante il login: ${error?.message}`);
@@ -26,4 +27,13 @@ export const signInWithEmail = async (email: string, password: string): Promise<
 
 export const checkAuthState = (callback: (user: User | null) => void): void => {
     onAuthStateChanged(auth, callback);
+};
+
+export const signOutUser = async (): Promise<void> => {
+    try {
+        await auth.signOut();
+        toast.success("Logout effettuato con successo.");
+    } catch (error: any) {
+        toast.error(`Errore durante il logout: ${error?.message}`);
+    }
 };
