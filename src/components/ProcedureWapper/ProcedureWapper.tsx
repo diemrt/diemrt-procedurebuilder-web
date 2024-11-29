@@ -1,8 +1,10 @@
+import remarkGfm from "remark-gfm";
 import { ProcedureRootType } from "../../types/procedureTypes";
 import BackToLink from "../BackToLink/BackToLink";
 import ShowWhen from "../ShowWhen/ShowWhen";
 import ProcedureStepsList from "./ProcedureStepsList/ProcedureStepsList";
 import ProcedureStepsWizard from "./ProcedureStepsWizard/ProcedureStepsWizard";
+import ReactMarkdown from "react-markdown";
 
 interface Props {
   data: ProcedureRootType;
@@ -19,7 +21,7 @@ const ProcedureLayout = ({ data }: Props) => {
           <h2 className="text-gray-900 font-bold text-2xl md:text-4xl md:leading-tight">
             {name}
           </h2>
-          <p className="mt-1 text-neutral-800">{description}</p>
+          <ReactMarkdown className="mt-1 text-neutral-800" children={description} remarkPlugins={[remarkGfm]} />
         </div>
         <ShowWhen condition={isStepByStep}>
           <ProcedureStepsWizard steps={steps} />
