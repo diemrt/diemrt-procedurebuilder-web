@@ -13,6 +13,7 @@ const AppRouter = () => {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/procedure/editor" element={<ProcedureEditorPage />} />
+          <Route path="/procedure/editor/update" element={<ProcedureEditorPage/>} />
           <Route path="/procedure/render" element={<ProcedureRenderPage />} />
           <Route path="/procedure/:link" element={<ProcedureByLinkPage />} />
           <Route path="*" element={<NotFoundPage />} />

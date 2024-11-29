@@ -16,7 +16,7 @@ const LandingInputDropzone = () => {
           try {
             const json = JSON.parse(reader.result as string);
             localStorage.setItem("procedureLoaded", JSON.stringify(json));
-            navigate("/procedure/render");
+            navigate("/procedure/editor/update");
           } catch (error) {
             console.error("File non valido o non supportato", error);
           }

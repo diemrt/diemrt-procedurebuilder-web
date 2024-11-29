@@ -11,7 +11,18 @@ import { supabaseClient } from "../../../api/supabaseUtils";
 import { toast } from "react-toastify";
 
 const ProcedureEditorForm = () => {
-  const formProps = useForm<FieldValues>();
+  const isUpdate = window.location.href.includes("update");
+  const procedureLoaded = localStorage.getItem("procedureLoaded");
+  const obj = procedureLoaded ? JSON.parse(procedureLoaded) : {};
+
+  const formProps = useForm<FieldValues>({
+    defaultValues: isUpdate ? {
+      title: obj.procedure?.name,
+      description: obj.procedure?.description,
+      isStepByStep: obj.procedure?.isStepByStep,
+      steps: obj.procedure?.steps
+    } : undefined,
+  });
   const { handleSubmit } = formProps;
 
   const [isFormValid, setIsFormValid] = useState(false);
@@ -22,7 +33,7 @@ const ProcedureEditorForm = () => {
         name: data.title,
         description: data.description,
         isStepByStep: data.isStepByStep,
-        steps: data.steps
+        steps: data.steps,
       },
     };
     const fileName = generateUniqueFileName(data.title);
@@ -37,16 +48,23 @@ const ProcedureEditorForm = () => {
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
 
-    const { data: storageData, error: storageError } = await supabaseClient.storage.from(import.meta.env.VITE_SUPABASE_BUCKET).upload(`public/${fileName}.json`, blob);
+    const { data: storageData, error: storageError } =
+      await supabaseClient.storage
+        .from(import.meta.env.VITE_SUPABASE_BUCKET)
+        .upload(`public/${fileName}.json`, blob);
     if (storageData) {
       toast.success("Procedura salvata correttamente!");
     }
     if (storageError) {
-      toast.error(`Errore durante il caricamento del file: ${storageError.message}`);
+      toast.error(
+        `Errore durante il caricamento del file: ${storageError.message}`
+      );
       return;
     }
 
-    const storageLink = `${import.meta.env.VITE_SELF_URL}/procedure/${fileName}`;
+    const storageLink = `${
+      import.meta.env.VITE_SELF_URL
+    }/procedure/${fileName}`;
     formProps.setValue("link", storageLink);
     copyLinkToClipboard(storageLink);
   };
