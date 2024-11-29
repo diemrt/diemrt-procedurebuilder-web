@@ -12,7 +12,7 @@ const OpenLoadedProcedureLink = () => {
           className="inline-flex items-center gap-x-2 bg-white border-2 border-gray-300 text-sm text-gray-800 p-1 ps-3 rounded-full transition hover:border-blue-400 focus:outline-none focus:border-gray-300 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-200 dark:hover:border-neutral-600 dark:focus:border-neutral-600"
           to="/procedure/render"
         >
-          Apri l'ultima procedura caricata
+          Apri l'ultima procedura
           <span className="py-1.5 px-2.5 inline-flex justify-center items-center gap-x-2 rounded-full bg-blue-500 font-semibold text-sm text-white dark:bg-neutral-700 dark:text-neutral-400">
             <ChevronRightIcon className="size-4" />
           </span>
