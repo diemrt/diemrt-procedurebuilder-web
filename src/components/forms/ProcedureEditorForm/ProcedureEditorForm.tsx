@@ -22,12 +22,7 @@ const ProcedureEditorForm = () => {
         name: data.title,
         description: data.description,
         isStepByStep: data.isStepByStep,
-        steps: data.steps.map((step: any) => ({
-          name: step.name,
-          description: step.description,
-          image: step.image,
-          timeToRead: step.timeToRead,
-        })),
+        steps: data.steps
       },
     };
     const fileName = generateUniqueFileName(data.title);
