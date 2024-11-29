@@ -94,12 +94,6 @@ const LoginPage = () => {
                     <label htmlFor="password" className="block text-sm mb-2">
                       Password
                     </label>
-                    <a
-                      className="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium"
-                      href="../examples/html/recover-account.html"
-                    >
-                      Password dimenticata?
-                    </a>
                   </div>
                   <div className="relative">
                     <input
