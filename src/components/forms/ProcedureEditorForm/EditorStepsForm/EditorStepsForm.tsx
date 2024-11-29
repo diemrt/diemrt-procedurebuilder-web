@@ -5,13 +5,14 @@ import Textarea from "../../common/Textarea/Textarea";
 import { DocumentTextIcon } from "@heroicons/react/24/outline";
 import EditorToolbar from "./EditorToolbar/EditorToolbar";
 import { useEffect } from "react";
+import ShowWhen from "../../../ShowWhen/ShowWhen";
 
 interface Props {
   setIsFormValid: React.Dispatch<React.SetStateAction<boolean>>;
   isFormValid: boolean;
 }
 const EditorStepsForm = ({ isFormValid, setIsFormValid }: Props) => {
-  const { control, register } = useFormContext();
+  const { control, register, watch } = useFormContext();
   const { isValid } = useFormState();
   const { fields, append, remove } = useFieldArray({
     control,
@@ -58,25 +59,29 @@ const EditorStepsForm = ({ isFormValid, setIsFormValid }: Props) => {
                   }}
                 />
               </div>
-              <div className="col-span-full">
-                <Input
-                  name={`steps.${index}.image`}
-                  type="text"
-                  label="URL dell'Immagine"
-                  register={register}
-                  rules={{
-                    required: "Campo obbligatorio",
-                  }}
-                />
-              </div>
-              <div className="col-span-full">
-                <Input
-                  name={`steps.${index}.timeToRead`}
-                  type="number"
-                  label="Tempo di Lettura (secondi)"
-                  register={register}
-                />
-              </div>
+              <ShowWhen condition={watch("isStepByStep") === true}>
+                <div className="col-span-full">
+                  <Input
+                    name={`steps.${index}.image`}
+                    type="text"
+                    label="URL dell'Immagine"
+                    register={register}
+                    rules={{
+                      required: "Campo obbligatorio",
+                    }}
+                  />
+                </div>
+              </ShowWhen>
+              <ShowWhen condition={watch("isStepByStep") === true}>
+                <div className="col-span-full">
+                  <Input
+                    name={`steps.${index}.timeToRead`}
+                    type="number"
+                    label="Tempo di Lettura (secondi)"
+                    register={register}
+                  />
+                </div>
+              </ShowWhen>
               <div className="col-span-full">
                 <div className="flex flex-col bg-red-50 border border-red-700 shadow-sm rounded-xl p-4 md:p-5 dark:bg-red-200 dark:border-red-700 dark:shadow-neutral-700/70">
                   <h3 className="font-bold text-sm text-red-800 flex items-center">
