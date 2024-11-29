@@ -92,14 +92,14 @@ const Navbar = () => {
                 GitHub
               </a>
               <Link
-                className="group inline-flex my-4 mx-3 justify-center md:m-0 items-center gap-x-2 py-2 px-3 bg-blue-500 font-medium text-sm text-white rounded-full focus:outline-none"
+                className="group inline-flex my-1 mx-3 justify-center md:m-0 items-center gap-x-2 py-2 px-3 bg-blue-500 font-medium text-sm text-white rounded-full focus:outline-none"
                 to="/procedure/editor"
               >
                 Crea una procedura
               </Link>
               <ShowWhen condition={isLoggedIn}>
                 <button
-                  className="group inline-flex my-4 mx-3 justify-center md:m-0 items-center gap-x-2 py-2 px-3 bg-gray-400 font-medium text-sm text-white rounded-full focus:outline-none"
+                  className="group inline-flex my-1 mx-3 justify-center md:m-0 items-center gap-x-2 py-2 px-3 bg-gray-400 font-medium text-sm text-white rounded-full focus:outline-none"
                   onClick={handleLogout}
                 >
                   Esci

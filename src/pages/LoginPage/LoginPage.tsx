@@ -41,8 +41,8 @@ const LoginPage = () => {
   });
 
   return (
-    <div className="h-screen flex justify-center items-center bg-gray-100">
-      <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm w-96">
+    <div className="h-screen flex justify-center pt-10 md:p-0 md:items-center bg-gray-100">
+      <div className="mt-7 max-h-fit bg-white border border-gray-200 rounded-xl shadow-sm w-96">
         <div className="p-4 sm:p-7">
           <div className="text-center">
             <NavbarLogo />
