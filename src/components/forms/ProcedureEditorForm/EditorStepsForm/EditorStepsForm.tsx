@@ -71,6 +71,8 @@ const EditorStepsForm = ({ isFormValid, setIsFormValid }: Props) => {
                     }}
                   />
                 </div>
+                <span className="col-span-full text-sm text-gray-500">
+                  Al momento non supportiamo il caricamento delle immagini sui nostri server. Se devi usare un'immagine personale, ti consigliamo di caricala su servizio di cloud storage e di copiare il link pubblico dell'immagine.</span>
               </ShowWhen>
               <ShowWhen condition={watch("isStepByStep") === true}>
                 <div className="col-span-full">
