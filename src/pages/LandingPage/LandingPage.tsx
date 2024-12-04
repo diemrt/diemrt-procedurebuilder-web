@@ -26,10 +26,10 @@ const LandingPage = () => {
         </div>
         <OpenLoadedProcedureLink />
         <div className="w-full flex justify-center">
-          <button className="flex items-center justify-center gap-x-3 max-w-sm w-full h-14 px-4 text-center bg-gradient-to-tl bg-blue-500 shadow-lg shadow-transparent hover:shadow-xl border border-transparent text-white text-sm font-medium rounded-full focus:outline-none focus:shadow-blue-700/50">
+          <Link className="flex items-center justify-center gap-x-3 max-w-sm w-full h-14 px-4 text-center bg-gradient-to-tl bg-blue-500 shadow-lg shadow-transparent hover:shadow-xl border border-transparent text-white text-sm font-medium rounded-full focus:outline-none focus:shadow-blue-700/50" to="/procedure/editor">
             <DocumentPlusIcon className="size-6" />
             <span>Crea una nuova procedura</span>
-          </button>
+          </Link>
         </div>
         <div className="max-w-3xl text-center mx-auto flex items-center text-xs text-gray-500 uppercase before:flex-1 before:border-t before:border-gray-300 before:me-6 after:flex-1 after:border-t after:border-gray-300 after:ms-6 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600">
           Oppure

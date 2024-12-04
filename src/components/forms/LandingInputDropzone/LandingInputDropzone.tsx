@@ -31,7 +31,7 @@ const LandingInputDropzone = () => {
 
   return (
     <>
-      <div className="hidden pt-5 md:flex md:justify-center">
+      <div className="hidden pt-2 md:flex md:justify-center">
         <div
           {...getRootProps()}
           className="px-20 flex flex-col items-center justify-center max-w-2xl w-full h-64 p-4 border-2 border-dashed border-blue-300 rounded-lg cursor-pointer bg-blue-50 hover:border-blue-500 shadow-xl focus:outline-none text-blue-400 hover:text-blue-500"
