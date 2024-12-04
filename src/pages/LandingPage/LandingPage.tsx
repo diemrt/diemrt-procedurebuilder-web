@@ -11,7 +11,7 @@ import { DocumentIcon, DocumentPlusIcon } from "@heroicons/react/24/outline";
 const LandingPage = () => {
   return (
     <DefaultWrapper>
-      <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-6 md:space-y-8 ">
+      <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 space-y-6 md:space-y-8 ">
         <div className="max-w-3xl text-center mx-auto">
           <h1 className="block font-medium text-gray-800 text-4xl md:text-5xl lg:text-6xl">
             Costruisci, condividi, segui: semplifica ogni processo!
