@@ -6,19 +6,17 @@ import Faq from "../../components/common/Faq";
 import LandingInputDropzone from "../../components/forms/LandingInputDropzone/LandingInputDropzone";
 import OpenLoadedProcedureLink from "../../components/OpenLoadedProcedureLink/OpenLoadedProcedureLink";
 import { Link } from "react-router-dom";
-import { DocumentIcon } from "@heroicons/react/24/outline";
+import { DocumentIcon, DocumentPlusIcon } from "@heroicons/react/24/outline";
 
 const LandingPage = () => {
   return (
     <DefaultWrapper>
-      <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-8">
+      <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-6 md:space-y-8 ">
         <div className="max-w-3xl text-center mx-auto">
           <h1 className="block font-medium text-gray-800 text-4xl md:text-5xl lg:text-6xl">
             Costruisci, condividi, segui: semplifica ogni processo!
           </h1>
         </div>
-        <OpenLoadedProcedureLink />
-        <LandingInputDropzone />
         <div className="max-w-3xl text-center mx-auto">
           <p className="text-lg text-black/70">
             <span className="opacity-90 font-bold">procedure builder</span> è
@@ -26,6 +24,17 @@ const LandingPage = () => {
             istruzioni passo-passo per ogni tipo di attività.
           </p>
         </div>
+        <OpenLoadedProcedureLink />
+        <div className="w-full flex justify-center">
+          <button className="flex items-center justify-center gap-x-3 max-w-sm w-full h-14 px-4 text-center bg-gradient-to-tl bg-blue-500 shadow-lg shadow-transparent hover:shadow-xl border border-transparent text-white text-sm font-medium rounded-full focus:outline-none focus:shadow-blue-700/50">
+            <DocumentPlusIcon className="size-6" />
+            <span>Crea una nuova procedura</span>
+          </button>
+        </div>
+        <div className="max-w-3xl text-center mx-auto flex items-center text-xs text-gray-500 uppercase before:flex-1 before:border-t before:border-gray-300 before:me-6 after:flex-1 after:border-t after:border-gray-300 after:ms-6 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600">
+          Oppure
+        </div>
+        <LandingInputDropzone />
         <>
           <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
             <div className="lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
@@ -62,7 +71,9 @@ const LandingPage = () => {
                     </h2>
                     <p className="text-gray-500 dark:text-neutral-500">
                       Crea infinite procedure, facili da modificare e
-                      accessibili ovunque. Carica un file con le istruzioni della procedura, oppure crearne una da zero con il nostro editor.
+                      accessibili ovunque. Carica un file con le istruzioni
+                      della procedura, oppure crearne una da zero con il nostro
+                      editor.
                     </p>
                   </div>
                 </div>

@@ -45,8 +45,7 @@ const LandingInputDropzone = () => {
           </ShowWhen>
           <ShowWhen condition={!isDragActive && !isDragReject}>
             <p className="flex items-center font-medium text-2xl">
-              <DocumentArrowUpIcon className="me-3 size-6" /> Trascina qui il
-              file
+              <DocumentArrowUpIcon className="me-3 size-6" /> Carica una procedura esistente
             </p>
           </ShowWhen>
           <ShowWhen condition={isDragReject}>
@@ -56,17 +55,17 @@ const LandingInputDropzone = () => {
             </p>
           </ShowWhen>
           <small>
-            Sono ammessi solo file con estensione <code>.json</code>
+            Trascina qui il tuo file. Sono ammessi solo file con estensione <code>.json</code>
           </small>
         </div>
       </div>
       <div className="md:hidden flex justify-center">
         <button
           onClick={open}
-          className="flex items-center justify-center gap-x-3 max-w-sm w-full h-14 px-4 text-center bg-gradient-to-tl bg-blue-500 shadow-lg shadow-transparent hover:shadow-xl border border-transparent text-white text-sm font-medium rounded-full focus:outline-none focus:shadow-blue-700/50"
+          className="flex items-center justify-center gap-x-3 max-w-sm w-full h-14 px-4 text-center bg-gradient-to-tl bg-white border border-blue-500 text-blue-500 text-sm font-medium rounded-full focus:text-blue-600 focus:border-blue-600 focus:font-bold"
         >
           <DocumentArrowUpIcon className="size-6" />
-          <span>Carica il tuo file</span>
+          <span>Carica una procedura esistente</span>
         </button>
       </div>
     </>
